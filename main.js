@@ -13,6 +13,12 @@ totalPriceElement.textContent = totalPrice.toFixed(2);
 }
 productSelector.addEventListener('change', updateTotalPrice);
 quantityInput.addEventListener('input', updateTotalPrice);
+//Ensure the quantity entered is a valid number (greater than 0)
+quantityInput.addEventListener('input', function() {
+if (quantityInput.value < 1) {
+quantityInput.value = 1;
+}
+});
 //Task4:Handle Order Submission
 placeOrderButton.addEventListener('click', function() {
 const selectedProduct = productSelector.options[productSelector.selectedIndex].text;
